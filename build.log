@@ -1,0 +1,250 @@
+[Licensing::Module] Channel doesn't exist: "LicenseClient-fo4664"
+[Licensing::Module] Successfully launched the LicensingClient (PId: 25860)
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-fo4664" (connect: 0.37s, validation: 0.06s, handshake: 0.96s)
+[Licensing::Module] Connected to LicensingClient (PId: 25860, launch time: 0.01, total connection time: 1.40s)
+Entitlement-based licensing initiated
+[Licensing::Module] Error: Access token is unavailable
+[LicensingClient] Licenses updated successfully
+
+LICENSE SYSTEM [202198 20:51:59] Next license update check is after 2021-09-09T19:22:08
+
+
+LICENSE SYSTEM [202198 20:51:59] Current license is already valid and activated. Skipping license activation process (Provided username/password will be ignored).
+Built from '2021.1/staging' branch; Version is '2021.1.19f1 (5f5eb8bbdc25) revision 6250168'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Enterprise; OS build 19043.1165; Version 2009; 64bit' Language: 'en' Physical Memory: 32448 MB
+[Licensing::Module] Serial number assigned to: "F4-8V5G-2B69-6BMH-5C5M-XXXX"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Package Manager] Server::Start -- Port 54916 was selected
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.19f1\Editor\Unity.exe
+-executeMethod
+Build.Invoke
+-logFile
+.\build.log
+-batchmode
+-quit
+-projectPath
+C:\tfs\GameJam2021\src
+Successfully changed project path to: C:\tfs\GameJam2021\src
+C:/tfs/GameJam2021/src
+Using Asset Import Pipeline V2.
+[Package Manager] Restoring resolved packages state from cache
+[Package Manager] 
+Registered 53 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.2d.animation@6.0.5 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.animation@6.0.5)
+    com.unity.2d.pixel-perfect@5.0.1 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.pixel-perfect@5.0.1)
+    com.unity.2d.psdimporter@5.0.4 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.psdimporter@5.0.4)
+    com.unity.2d.spriteshape@6.0.1 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.spriteshape@6.0.1)
+    com.unity.2d.tilemap.extras@2.2.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.tilemap.extras@2.2.0)
+    com.unity.collab-proxy@1.9.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.collab-proxy@1.9.0)
+    com.unity.ide.rider@3.0.7 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.ide.rider@3.0.7)
+    com.unity.ide.visualstudio@2.0.11 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.ide.visualstudio@2.0.11)
+    com.unity.ide.vscode@1.2.3 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.ide.vscode@1.2.3)
+    com.unity.test-framework@1.1.29 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.test-framework@1.1.29)
+    com.unity.textmeshpro@3.0.6 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.textmeshpro@3.0.6)
+    com.unity.timeline@1.5.6 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.timeline@1.5.6)
+    com.unity.visualscripting@1.6.1 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.visualscripting@1.6.1)
+    com.unity.ext.nunit@1.0.6 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.ext.nunit@1.0.6)
+    com.unity.mathematics@1.2.1 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.mathematics@1.2.1)
+    com.unity.2d.common@5.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.common@5.0.0)
+    com.unity.2d.path@5.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.path@5.0.0)
+  Built-in packages:
+    com.unity.2d.sprite@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.sprite@1.0.0)
+    com.unity.2d.tilemap@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.2d.tilemap@1.0.0)
+    com.unity.ugui@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.ugui@1.0.0)
+    com.unity.modules.ai@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.ai@1.0.0)
+    com.unity.modules.androidjni@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.androidjni@1.0.0)
+    com.unity.modules.animation@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.animation@1.0.0)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.assetbundle@1.0.0)
+    com.unity.modules.audio@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.audio@1.0.0)
+    com.unity.modules.cloth@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.cloth@1.0.0)
+    com.unity.modules.director@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.director@1.0.0)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.imageconversion@1.0.0)
+    com.unity.modules.imgui@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.imgui@1.0.0)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.jsonserialize@1.0.0)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.particlesystem@1.0.0)
+    com.unity.modules.physics@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.physics@1.0.0)
+    com.unity.modules.physics2d@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.physics2d@1.0.0)
+    com.unity.modules.screencapture@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.screencapture@1.0.0)
+    com.unity.modules.terrain@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.terrain@1.0.0)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.terrainphysics@1.0.0)
+    com.unity.modules.tilemap@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.tilemap@1.0.0)
+    com.unity.modules.ui@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.ui@1.0.0)
+    com.unity.modules.uielements@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.uielements@1.0.0)
+    com.unity.modules.umbra@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.umbra@1.0.0)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.unityanalytics@1.0.0)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.unitywebrequesttexture@1.0.0)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0)
+    com.unity.modules.vehicles@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.vehicles@1.0.0)
+    com.unity.modules.video@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.video@1.0.0)
+    com.unity.modules.vr@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.vr@1.0.0)
+    com.unity.modules.wind@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.wind@1.0.0)
+    com.unity.modules.xr@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.xr@1.0.0)
+    com.unity.modules.subsystems@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.subsystems@1.0.0)
+    com.unity.modules.uielementsnative@1.0.0 (location: C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.modules.uielementsnative@1.0.0)
+
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 0.07s seconds
+Refreshing native plugins compatible for Editor in 89.22 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.19f1 (5f5eb8bbdc25)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.19f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/tfs/GameJam2021/src/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA T500 (ID=0x1fbb)
+    Vendor:   NVIDIA
+    VRAM:     3968 MB
+    Driver:   27.21.14.5296
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.19f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.19f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56580
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002355 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 81.24 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.066 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1080ms)
+		BeginReloadAssembly (76ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (382ms)
+			LoadAssemblies (75ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (117ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (22ms)
+			SetupLoadedEditorAssemblies (190ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (81ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (80ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Validating Project structure ... 0.000198 seconds.
+Application.AssetDatabase Initial Script Refresh Start
+Registering precompiled user dll's ...
+Registered in 0.004593 seconds.
+Starting: C:\Program Files\Unity\Hub\Editor\2021.1.19f1\Editor\Data\bee_backend.exe --dagfile="Library/Bee/1900b0aE.dag" --profile="Library/Bee/profiler.json" --continue-on-failure --stdin-canary ScriptAssemblies
+WorkingDir: C:/tfs/GameJam2021/src
+ExitCode: 0 Duration: 0s211ms
+*** Tundra build success (0.16 seconds), 0 items updated, 363 evaluated
+AssetDatabase: script compilation time: 0.468594s
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\tfs\GameJam2021\src\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 78.43 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.024 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1051ms)
+		BeginReloadAssembly (154ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (849ms)
+			LoadAssemblies (115ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (268ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (368ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (79ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (200ms)
+				ProcessInitializeOnLoadMethodAttributes (12ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+RefreshInfo: InitialScriptRefreshV2(NoUpdateAssetOptions) scanfilter:  ... 1 filters
+RefreshProfiler: Total: 2902.190ms
+	InvokeBeforeRefreshCallbacks: 0.644ms
+	ApplyChangesToAssetFolders: 0.044ms
+	Scan: 187.735ms
+	OnSourceAssetsModified: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.093ms
+	GetAllGuidsForCategorization: 0.433ms
+	CategorizeAssets: 77.213ms
+	ImportAndPostprocessOutOfDateAssets: 2602.238ms (2132.844ms without children)
+		CompileScripts: 468.700ms
+		PostProcessAllAssets: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.330ms
+		InitializingProgressBar: 0.002ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.309ms
+		RestoreLoadedAssetsState: 0.053ms
+	ReloadSourceAssets: 0.373ms
+	UnloadImportedAssets: 0.003ms
+	Hotreload: 0.593ms
+	FixTempGuids: 0.003ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.393ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.004ms
+	GetLoadedSourceAssetsSnapshot: 0.074ms
+	PersistCurrentRevisions: 0.678ms
+	UnloadStreamsEnd: 12.505ms
+	GenerateScriptTypeHashes: 0.102ms
+	Untracked: 19.164ms
+Application.AssetDatabase Initial Script Refresh End
+Application.AssetDatabase.Refresh Start
+Refresh completed in 0.091643 seconds.
+RefreshInfo: RefreshV2(ForceSynchronousImport) scanfilter: 
+RefreshProfiler: Total: 91.558ms
+Application.AssetDatabase.Refresh End
+RefreshInfo: StopAssetImportingV2(ForceSynchronousImport) scanfilter: 
+RefreshProfiler: Total: 6.341ms
+Refresh completed in 0.091131 seconds.
+RefreshInfo: RefreshV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 90.874ms
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Initializing Unity extensions:
+Unloading 118 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.8 MB.
+System memory in use after: 100.9 MB.
+
+Unloading 148 unused Assets to reduce memory usage. Loaded Objects now: 4160.
+Total: 3.692000 ms (FindLiveObjects: 0.130600 ms CreateObjectMapping: 0.063900 ms MarkObjects: 3.133000 ms  DeleteObjects: 0.363800 ms)
+
+ProgressiveSceneManager::Cancel()
+executeMethod class 'Build' could not be found.
+Argument was -executeMethod Build.Invoke
+Exiting without the bug reporter. Application will terminate with return code 1
