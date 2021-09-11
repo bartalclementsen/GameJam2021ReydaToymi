@@ -6,33 +6,38 @@ using UnityEngine;
 
 public class Game
 {
-    public static IContainer Container { get; private set; }
+    private static IContainer container;
+    public static IContainer Container
+    {
+        get
+        {
+            if (container == null)
+                Bootstrap();
+            return container;
+        }
+    }
 
     private static Core.Loggers.ILogger _logger;
 
     [RuntimeInitializeOnLoadMethod]
     private static void Main()
     {
-        Debug.Log("Startup");
-
-        Debug.Log("Starting bootstrap");
-
-        Bootstrap();
-
-        UnityEngine.Random.InitState(Convert.ToInt32(DateTime.Now.Ticks % int.MaxValue));
-
         _logger = Container.Resolve<ILoggerFactory>().Create(null);
 
-        _logger.Log("Done bootstrap");
+        _logger.Log("Main");
     }
 
     private static void Bootstrap()
     {
+        Debug.Log("Starting bootstrap");
+
         ContainerBuilder containerBuilder = new ContainerBuilder();
 
         containerBuilder.Register<ILoggerFactory, LoggerFactory>();
         containerBuilder.RegisterSingleton<IMessenger, Messenger>();
 
-        Container = containerBuilder.Build();
+        container = containerBuilder.Build();
+
+        Debug.Log("Done bootstrap");
     }
 }
