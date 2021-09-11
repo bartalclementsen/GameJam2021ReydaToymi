@@ -9,6 +9,7 @@ public class LevelSceneHandler : MonoBehaviour {
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
 
         messenger.Subscribe<PlayerWonMessage>(m => {
+            Cursor.lockState = CursorLockMode.None;
             WinGame();
 
             // DO STUFF WHEN PLAYER WON!!
