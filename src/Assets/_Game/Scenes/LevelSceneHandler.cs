@@ -9,9 +9,13 @@ public class LevelSceneHandler : MonoBehaviour {
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
 
         messenger.Subscribe<PlayerWonMessage>(m => {
+            Cursor.lockState = CursorLockMode.None;
             WinGame();
+        });
 
-            // DO STUFF WHEN PLAYER WON!!
+        messenger.Subscribe<PlayerDeathMessage>(m => {
+            Cursor.lockState = CursorLockMode.None;
+            LoseGame();
         });
     }
 
@@ -20,7 +24,7 @@ public class LevelSceneHandler : MonoBehaviour {
         SceneManager.LoadSceneAsync(2);
     }
 
-    public void LooseGame()
+    public void LoseGame()
     {
         SceneManager.LoadSceneAsync(3);
     }
