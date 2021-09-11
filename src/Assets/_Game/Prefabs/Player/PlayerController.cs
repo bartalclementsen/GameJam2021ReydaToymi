@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioSource engineAudioSource;
 
+    [SerializeField]
+    private AudioSource musicAudioSource;
+
     private IMessenger message;
     private Core.Loggers.ILogger logger;
     private Rigidbody rigidbody;
