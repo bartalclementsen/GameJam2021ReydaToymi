@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioSource collisionAudioSource;
 
+    [SerializeField]
+    private AudioClip[] collisionSounds;
+
     private IMessenger message;
     private Core.Loggers.ILogger logger;
     private Rigidbody rigidbody;
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         rigidbody = GetComponent<Rigidbody>();
 
         logger = Game.Container.Resolve<Core.Loggers.ILoggerFactory>().Create(this);
@@ -104,16 +109,23 @@ public class PlayerController : MonoBehaviour
 
         rigidbody.AddForce(forceVector);
     }
+
     void OnCollisionEnter(Collision collision)
     {
-        // Debug-draw all contact points and normals
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-        }
+        message.Publish(new PlayerCollidedMessage(collision));
 
-        logger.Log($"Collided with {collision.gameObject?.name}");
+        var firstContact = collision.contacts[0];
+        
+        PlayCollisionSound(firstContact.point);
+    }
 
+    private void PlayCollisionSound(Vector3 position)
+    {
+        int index = Random.Range(0, collisionSounds.Length - 1);
+        AudioClip collisionAudioClip = collisionSounds[index];
+
+        collisionAudioSource.transform.position = position;
+        collisionAudioSource.clip = collisionAudioClip;
         collisionAudioSource.Play();
     }
 }
