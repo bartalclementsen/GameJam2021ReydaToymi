@@ -34,7 +34,7 @@ public class PlayerCameraController : MonoBehaviour
     }
 
     private bool isMouseCaptured = false;
-
+    private IMouseClickable mouseClickable;
 
     private void Update()
     {
@@ -61,22 +61,22 @@ public class PlayerCameraController : MonoBehaviour
                 IMouseClickable v = hit.collider.GetComponentInParent<IMouseClickable>();
                 if(v != null)
                 {
-                    v.MouseDown();
+                    mouseClickable = v;
+                    mouseClickable.MouseDown();
                     isMouseCaptured = true;
                 }
             }
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            var ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if(mouseClickable != null)
             {
-                hit.collider.GetComponentInParent<IMouseClickable>()?.MouseUp();
+                mouseClickable.MouseUp();
+                mouseClickable = null;
             }
 
             isMouseCaptured = false;
         }
-
     }
 
     private void HandleMessage(PlayerCollidedMessage obj)

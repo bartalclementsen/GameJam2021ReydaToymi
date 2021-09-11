@@ -5,11 +5,15 @@ using UnityEngine;
 public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
 {
     [SerializeField]
-    private float minMax = 60;
+    private float minMax = 0.2f;
+
+    private float min = 0;
+
+    private float max = 0;
 
     private float current = 0;
 
-    private float speed = 0.1f;
+    private float speed = 1.0f;
 
     private bool isDragging = false;
 
@@ -18,7 +22,7 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
     private void Start()
     {
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
-        current = transform.position.y;
+        current = transform.localPosition.y;
         min = current - minMax;
         max = current + minMax;
     }
@@ -28,14 +32,17 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
         if (isDragging)
         {
             float increment = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
-            current = Mathf.Min(max, Mathf.Max(min, transform.position.y + increment));
-            transform.position = new Vector3(transform.position.x, current, transform.position.z);
+            current = Mathf.Min(max, Mathf.Max(min, transform.localPosition.y + increment));
+            transform.localPosition = new Vector3(transform.localPosition.x, current, transform.localPosition.z);
         }
 
-        if (current > 0.1 || current < -0.1)
+        var diff = current - min;
+        var fraction = (diff / (minMax * 2));
+        var movementValue = fraction * 2 - 1;
+
+        if (movementValue > 0.1 || movementValue < -0.1)
         {
-            float movementValue = current / 60.0f;
-            messenger.Publish(new AccelerateZMessage(movementValue));
+            messenger.Publish(new AccelerateYMessage(movementValue));
         }
     }
 
