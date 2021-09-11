@@ -55,13 +55,15 @@ public class PlayerCameraController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Input.GetMouseButtonDown(0)");
             var ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
                 IMouseClickable v = hit.collider.GetComponentInParent<IMouseClickable>();
-                if(v != null)
+                Debug.Log(v);
+                if (v != null)
                 {
                     mouseClickable = v;
+                    Debug.Log("hit");
                     mouseClickable.MouseDown();
                     isMouseCaptured = true;
                 }
