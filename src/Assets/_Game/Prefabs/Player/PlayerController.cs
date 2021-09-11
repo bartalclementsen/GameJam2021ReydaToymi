@@ -124,7 +124,8 @@ public class PlayerController : MonoBehaviour
         int index = Random.Range(0, collisionSounds.Length - 1);
         AudioClip collisionAudioClip = collisionSounds[index];
 
-        collisionAudioSource.transform.position = position;
+        // TODO: Figure out how to move the collision audio source
+        //collisionAudioSource.transform.position = position;
         collisionAudioSource.clip = collisionAudioClip;
         collisionAudioSource.Play();
     }
