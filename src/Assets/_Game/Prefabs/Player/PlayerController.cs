@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private Core.Loggers.ILogger logger;
     private Rigidbody rigidbody;
 
-    private float minEnginVolumen = 0.3f;
+    private float minEnginVolumen = 0.1f;
 
     void Start()
     {
@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
         message.Subscribe<AccelerateXMessage>(HandleMessage);
         message.Subscribe<AccelerateYMessage>(HandleMessage);
         message.Subscribe<AccelerateZMessage>(HandleMessage);
-
-        engineAudioSource.volume = minEnginVolumen;
     }
 
     private void FixedUpdate()
@@ -49,11 +47,10 @@ public class PlayerController : MonoBehaviour
             rigidbody.velocity = newVelocity;
         }
 
-        float velocityFactor = Mathf.Max(0, Mathf.Min(1, sqrMagnitude / newVelocity.sqrMagnitude));
+        float velocityFactor = Mathf.Max(0, Mathf.Min(1, rigidbody.velocity.sqrMagnitude / newVelocity.sqrMagnitude));
         float engineVolume = (1 - minEnginVolumen) * velocityFactor;
-        
         engineAudioSource.volume = minEnginVolumen + engineVolume;
-        if(engineAudioSource.volume == float.NaN)
+        if (engineAudioSource.volume == float.NaN)
         {
             engineAudioSource.volume = minEnginVolumen;
         }
