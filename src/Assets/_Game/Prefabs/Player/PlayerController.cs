@@ -18,11 +18,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioSource musicAudioSource;
 
+    [SerializeField]
+    private AudioSource collisionAudioSource;
+
     private IMessenger message;
     private Core.Loggers.ILogger logger;
     private Rigidbody rigidbody;
 
     private float minEnginVolumen = 0.1f;
+
+    private Core.Mediators.ISubscriptionToken accelerateXMessageToken;
+    private Core.Mediators.ISubscriptionToken accelerateYMessage;
+    private Core.Mediators.ISubscriptionToken accelerateZMessage;
 
     void Start()
     {
@@ -31,9 +38,16 @@ public class PlayerController : MonoBehaviour
         logger = Game.Container.Resolve<Core.Loggers.ILoggerFactory>().Create(this);
 
         message = Game.Container.Resolve<IMessenger>();
-        message.Subscribe<AccelerateXMessage>(HandleMessage);
-        message.Subscribe<AccelerateYMessage>(HandleMessage);
-        message.Subscribe<AccelerateZMessage>(HandleMessage);
+        accelerateXMessageToken = message.Subscribe<AccelerateXMessage>(HandleMessage);
+        accelerateYMessage = message.Subscribe<AccelerateYMessage>(HandleMessage);
+        accelerateZMessage = message.Subscribe<AccelerateZMessage>(HandleMessage);
+    }
+
+    private void OnDestroy()
+    {
+        accelerateXMessageToken.Dispose();
+        accelerateYMessage.Dispose();
+        accelerateZMessage.Dispose();
     }
 
     private void FixedUpdate()
@@ -49,10 +63,12 @@ public class PlayerController : MonoBehaviour
 
         float velocityFactor = Mathf.Max(0, Mathf.Min(1, rigidbody.velocity.sqrMagnitude / newVelocity.sqrMagnitude));
         float engineVolume = (1 - minEnginVolumen) * velocityFactor;
-        engineAudioSource.volume = minEnginVolumen + engineVolume;
+        float newVolume = minEnginVolumen + engineVolume;
+
+        engineAudioSource.volume = Mathf.Max(minEnginVolumen, Mathf.Min(1, newVolume));
         if (engineAudioSource.volume == float.NaN)
         {
-            engineAudioSource.volume = minEnginVolumen;
+            engineAudioSource.volume =  minEnginVolumen;
         }
     }
 
@@ -87,5 +103,17 @@ public class PlayerController : MonoBehaviour
             forceVector = forceVector * -1;
 
         rigidbody.AddForce(forceVector);
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        // Debug-draw all contact points and normals
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+        }
+
+        logger.Log($"Collided with {collision.gameObject?.name}");
+
+        collisionAudioSource.Play();
     }
 }
