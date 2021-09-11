@@ -30,11 +30,11 @@ public class AccelerateZMessage : AccelerateMessage
     public AccelerateZMessage(float value) : base(value) { }
 }
 
-public class PlayerCollided : Core.Mediators.Message
+public class PlayerCollidedMessage : Core.Mediators.Message
 {
     public Collision Collision { get; }
 
-    public PlayerCollided(Collision collision)
+    public PlayerCollidedMessage(Collision collision)
     {
         Collision = collision;
     }

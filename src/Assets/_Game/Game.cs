@@ -22,6 +22,8 @@ public class Game
     [RuntimeInitializeOnLoadMethod]
     private static void Main()
     {
+        UnityEngine.Random.InitState(Convert.ToInt32(DateTime.Now.Ticks % int.MaxValue));
+
         _logger = Container.Resolve<ILoggerFactory>().Create(null);
 
         _logger.Log("Main");
