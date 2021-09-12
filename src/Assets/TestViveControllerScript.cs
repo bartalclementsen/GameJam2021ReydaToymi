@@ -69,15 +69,19 @@ public class TestViveControllerScript : MonoBehaviour {
         var radius = col.radius; // gets really big for some reason
         radius = 0.1f;
         var colliders = Physics.OverlapCapsule(point0, point1, radius);
-        //Debug.DrawLine(point0, point1, Color.red, 10);
-        //Debug.DrawLine(middle + Vector3.forward * radius, middle + Vector3.back * radius, Color.red, 10);
-        //Debug.DrawLine(middle + Vector3.left * radius, middle + Vector3.right * radius, Color.red, 10);
+        Debug.DrawLine(point0, point1, Color.red, 10);
+        Debug.DrawLine(middle + Vector3.forward * radius, middle + Vector3.back * radius, Color.red, 10);
+        Debug.DrawLine(middle + Vector3.left * radius, middle + Vector3.right * radius, Color.red, 10);
         colliders.ToList().ForEach(
             a => {
                 var script = a.GetComponentInParent<IMouseClickable>();
                 if (script != null) {
-                    script.MouseDown();
-                    script.SetGrabber(grabber);
+                    if (script.GetIsDragging()) {
+                        script.MouseUp();
+                    } else {
+                        script.MouseDown();
+                        script.SetGrabber(grabber);
+                    }
                 }
             }
         );

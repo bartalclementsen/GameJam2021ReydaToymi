@@ -63,6 +63,7 @@ public class PlayerCameraController : MonoBehaviour
                 {
                     mouseClickable = v;
                     mouseClickable.MouseDown();
+                    mouseClickable.SetGrabber(Grabber.MOUSE);
                     isMouseCaptured = true;
                 }
             }
@@ -71,6 +72,7 @@ public class PlayerCameraController : MonoBehaviour
             if(mouseClickable != null)
             {
                 mouseClickable.MouseUp();
+                mouseClickable.SetGrabber(Grabber.NONE);
                 mouseClickable = null;
             }
 

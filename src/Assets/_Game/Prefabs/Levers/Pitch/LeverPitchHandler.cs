@@ -69,17 +69,20 @@ public class LeverPitchHandler : MonoBehaviour, IMouseClickable
 
     public void MouseDown()
     {
-        isDragging = true;
+        if (grabber == Grabber.NONE) isDragging = true;
     }
 
     public void MouseUp()
     {
         isDragging = false;
+        grabber = Grabber.NONE;
     }
 
     public void SetGrabber(Grabber g) {
         grabber = g;
     }
+
+    public bool GetIsDragging() => isDragging;
 
     private void PlaySound()
     {

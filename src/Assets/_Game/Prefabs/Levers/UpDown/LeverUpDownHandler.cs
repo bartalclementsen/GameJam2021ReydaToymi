@@ -53,7 +53,7 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
                     : viveControllerScript.getLeftHandVelocity().y;
             float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2 : 1;
 
-            float increment = Input.GetAxis("Mouse Y") * speed * speedMultiplier * Time.deltaTime;
+            float increment = velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Min(max, Mathf.Max(min, transform.localPosition.y + increment));
             transform.localPosition = new Vector3(transform.localPosition.x, current, transform.localPosition.z);
         }
@@ -80,17 +80,20 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
 
     public void MouseDown()
     {
-        isDragging = true;
+        if (grabber == Grabber.NONE) isDragging = true;
     }
 
     public void MouseUp()
     {
         isDragging = false;
+        grabber = Grabber.NONE;
     }
 
     public void SetGrabber(Grabber g) {
         grabber = g;
     }
+
+    public bool GetIsDragging() => isDragging;
 
     private void PlaySound(float volume)
     {

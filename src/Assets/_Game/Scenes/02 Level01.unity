@@ -3171,7 +3171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62127509dcdd6740a49518331359b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
+  mode: 0
   WithVR: {fileID: 1390220915}
   WithoutVR: {fileID: 1145769096}
 --- !u!4 &1387604668

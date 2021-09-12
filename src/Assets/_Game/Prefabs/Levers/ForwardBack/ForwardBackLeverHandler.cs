@@ -7,6 +7,8 @@ public interface IMouseClickable
     void MouseUp();
 
     void SetGrabber(Grabber g);
+
+    bool GetIsDragging();
 }
 
 public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
@@ -52,7 +54,7 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
                 : grabber == Grabber.RIGHT_VIVE
                     ? viveControllerScript.getRightHandVelocity().z
                     : viveControllerScript.getLeftHandVelocity().z;
-            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2.5f : 1;
+            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 4 : 1;
 
             float increment = velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
@@ -73,13 +75,11 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
         }
     }
 
-    public void MouseDown()
-    {
-        isDragging = true;
+    public void MouseDown() {
+        if (grabber == Grabber.NONE) isDragging = true;
     }
 
-    public void MouseUp()
-    {
+    public void MouseUp() {
         isDragging = false;
         grabber = Grabber.NONE;
     }
@@ -87,6 +87,8 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
     public void SetGrabber(Grabber g) {
         grabber = g;
     }
+
+    public bool GetIsDragging() => isDragging;
 
     private void PlaySound()
     {
