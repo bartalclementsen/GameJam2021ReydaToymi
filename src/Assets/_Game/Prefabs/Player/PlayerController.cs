@@ -76,13 +76,6 @@ public class PlayerController : MonoBehaviour
         accelerateRollMessage = message.Subscribe<AccelerateRollMessage>(HandleMessage);
     }
 
-    private void OnDestroy()
-    {
-        accelerateXMessageToken.Dispose();
-        accelerateYMessage.Dispose();
-        accelerateZMessage.Dispose();
-    }
-
     private void Update()
     {
         var secondsSinceStart = (int)(Time.time - startTime);
