@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2008764368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008764369}
+  m_Layer: 0
+  m_Name: Hands Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2008764369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008764368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1798286479237316623}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &122903216078627708
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,7 @@ GameObject:
   - component: {fileID: 18347691893992992}
   - component: {fileID: 8327590461766392474}
   - component: {fileID: 5022995751923800509}
+  - component: {fileID: 7288075633728662281}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -98,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 6995011189378070043}
+  volumeTrigger: {fileID: 0}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -178,6 +209,21 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!114 &7288075633728662281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122903216078627708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f11fe96a7424644bf0c491d87886c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftController: {fileID: 2501007059003390022}
+  RightController: {fileID: 8510172060994600253}
+  handsOrigin: {fileID: 2008764368}
 --- !u!1 &1895619717815442395
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,9 +254,107 @@ Transform:
   - {fileID: 6211825655348195380}
   - {fileID: 663471283926143961}
   - {fileID: 2760028098345608701}
+  - {fileID: 2008764369}
   m_Father: {fileID: 2323521147954431049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2252272489263876584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7735392029317511301}
+  - component: {fileID: 857672803911770691}
+  - component: {fileID: 6684430557207087776}
+  - component: {fileID: 3119526271569873165}
+  m_Layer: 0
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7735392029317511301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252272489263876584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 2760028098345608701}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &857672803911770691
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252272489263876584}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6684430557207087776
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252272489263876584}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3119526271569873165
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252272489263876584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2501007059003390022
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,8 +365,6 @@ GameObject:
   m_Component:
   - component: {fileID: 663471283926143961}
   - component: {fileID: 9105225316448851425}
-  - component: {fileID: 2768064715493621508}
-  - component: {fileID: 7108424358012694117}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -240,7 +382,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4191244888475024469}
   m_Father: {fileID: 1798286479237316623}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,7 +414,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: Test
         m_Mode: 1
@@ -287,7 +430,7 @@ MonoBehaviour:
     m_ActionName: VRcontroller/Grab
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: GripPressed
         m_Mode: 1
@@ -311,7 +454,7 @@ MonoBehaviour:
     m_ActionName: LeftVRcontroller/TrackPadTouched
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: TriggerPressed
         m_Mode: 1
@@ -331,7 +474,7 @@ MonoBehaviour:
     m_ActionName: LeftVRcontroller/IsTracked
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
@@ -389,53 +532,31 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8f934a6f-3e08-4108-bb34-1c34bc4babaa
     m_ActionName: RightVRcontroller/TriggerPressed[/HTCViveControllerOpenXR1/triggerpressed]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2501007059003390022}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fb5d0b77-a8bc-4f4a-b268-636bac56948f
+    m_ActionName: LeftVRcontroller/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ce1107b-6d9d-404f-b961-4caed91fc164
+    m_ActionName: RightVRcontroller/Position
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: LeftVRcontroller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2768064715493621508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501007059003390022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackingType: 0
-  m_UpdateType: 0
-  m_PositionAction:
-    m_Name: Position
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ebf4bdb7-7667-4008-b769-1b241e6206a7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  m_RotationAction:
-    m_Name: Rotation
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 4a44c661-a21a-4f97-89d2-19b52c338337
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
---- !u!114 &7108424358012694117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501007059003390022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40f11fe96a7424644bf0c491d87886c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4267158994553709787
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4267158994553709787}
   m_LocalRotation: {x: -0, y: -0.009162936, z: -0, w: 0.99995804}
-  m_LocalPosition: {x: 0, y: 0, z: 0.060001373}
+  m_LocalPosition: {x: -0.07, y: -0.84, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1798286479237316623}
@@ -485,6 +606,103 @@ MonoBehaviour:
   m_TrackingOriginMode: 2
   m_TrackingSpace: 0
   m_CameraYOffset: 1.36144
+--- !u!1 &4548235965970965255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4191244888475024469}
+  - component: {fileID: 6001197537987332840}
+  - component: {fileID: 2212698275926759884}
+  - component: {fileID: 6642426302023867040}
+  m_Layer: 0
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4191244888475024469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548235965970965255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 663471283926143961}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6001197537987332840
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548235965970965255}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2212698275926759884
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548235965970965255}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &6642426302023867040
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548235965970965255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8510172060994600253
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +713,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2760028098345608701}
   - component: {fileID: 351857880839256532}
-  - component: {fileID: 1470563850406195770}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -513,7 +730,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7735392029317511301}
   m_Father: {fileID: 1798286479237316623}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -580,7 +798,7 @@ MonoBehaviour:
     m_ActionName: LeftVRcontroller/DevicePoseIsTracked
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: GripPressed
         m_Mode: 1
@@ -600,7 +818,7 @@ MonoBehaviour:
     m_ActionName: RightVRcontroller/DevicePoseIsTracked[/HTCViveControllerOpenXR1/devicePose/isTracked]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: IsTracked
         m_Mode: 1
@@ -616,7 +834,7 @@ MonoBehaviour:
     m_ActionName: RightVRcontroller/IsTracked[/HTCViveControllerOpenXR1/isTracked]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
@@ -636,7 +854,7 @@ MonoBehaviour:
     m_ActionName: RightVRcontroller/PointerIsTracked[/HTCViveControllerOpenXR1/pointer/isTracked]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
@@ -660,7 +878,7 @@ MonoBehaviour:
     m_ActionName: RightVRcontroller/TrackPadTouched[/HTCViveControllerOpenXR1/trackpadtouched]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108424358012694117}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
         m_MethodName: TriggerPressed
         m_Mode: 1
@@ -674,41 +892,19 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8f934a6f-3e08-4108-bb34-1c34bc4babaa
     m_ActionName: RightVRcontroller/TriggerPressed[/HTCViveControllerOpenXR1/triggerpressed]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fb5d0b77-a8bc-4f4a-b268-636bac56948f
+    m_ActionName: LeftVRcontroller/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ce1107b-6d9d-404f-b961-4caed91fc164
+    m_ActionName: RightVRcontroller/Position
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: RightVRcontroller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1470563850406195770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8510172060994600253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackingType: 0
-  m_UpdateType: 0
-  m_PositionAction:
-    m_Name: Position
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ebf4bdb7-7667-4008-b769-1b241e6206a7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  m_RotationAction:
-    m_Name: Rotation
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 4a44c661-a21a-4f97-89d2-19b52c338337
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
 --- !u!1001 &8667171105467339622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -726,15 +922,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.43464923
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalRotation.w
@@ -742,15 +938,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -766,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_Name
-      value: PlayerVR Variant
+      value: PlayerVR
       objectReference: {fileID: 0}
     - target: {fileID: 5698999631781019902, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
