@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private float acceleration = 50;
 
     [SerializeField]
+    private float rollAcceleration = 5;
+
+    [SerializeField]
     private float maxSpeed = 1;
 
     [SerializeField]
@@ -102,6 +105,15 @@ public class PlayerController : MonoBehaviour
             rigidbody.velocity = newVelocity;
         }
 
+        var angularVelocity = rigidbody.angularVelocity;
+        var angularSqrMagnitude = angularVelocity.sqrMagnitude;
+        var angularNewVelocity = angularVelocity.normalized * maxSpeed;
+
+        if (angularSqrMagnitude > angularNewVelocity.sqrMagnitude)
+        {
+            rigidbody.angularVelocity = angularNewVelocity;
+        }
+
         float velocityFactor = Mathf.Max(0, Mathf.Min(1, rigidbody.velocity.sqrMagnitude / newVelocity.sqrMagnitude));
         float engineVolume = (1 - minEnginVolumen) * velocityFactor;
         float newVolume = minEnginVolumen + engineVolume;
@@ -131,7 +143,8 @@ public class PlayerController : MonoBehaviour
     {
 
         float forceValue = message.Value * acceleration * Time.deltaTime;
-        rigidbody.AddForce(transform.up * forceValue);
+        
+        rigidbody.AddForce(Vector3.up * forceValue);
 
         //float forceValue = Mathf.Abs(message.Value) * acceleration * Time.deltaTime;
 
@@ -160,7 +173,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMessage(AccelerateYawMessage message)
     {
-        float forceValue = message.Value * acceleration * Time.deltaTime;
+        float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
         //var forceVector = new Vector3(0, 0, forceValue);
         //if (message.Value < 0)
@@ -173,7 +186,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMessage(AcceleratePitchMessage message)
     {
-        float forceValue = message.Value * acceleration * Time.deltaTime;
+        float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
         //var forceVector = new Vector3(0, 0, forceValue);
         //if (message.Value < 0)
@@ -185,7 +198,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMessage(AccelerateRollMessage message)
     {
-        float forceValue = message.Value * acceleration * Time.deltaTime;
+        float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
         //var forceVector = new Vector3(0, 0, forceValue);
         //if (message.Value < 0)
