@@ -39,7 +39,7 @@ public class MenuHandlerScript : MonoBehaviour {
 
     public void ExitGame() {
         Time.timeScale = 1;
-        SceneManager.LoadSceneAsync(1);
+        Application.Quit();
         Cursor.lockState = CursorLockMode.None;
     }
 
