@@ -53,21 +53,23 @@ public class PlayerCameraController : MonoBehaviour
             transform.rotation = localRotation;
         }
 
+        var ray = camera.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red, 0.1f);
+
         if (Input.GetMouseButtonDown(0))
         {
-            var ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                Debug.Log(hit, hit.collider.gameObject);
                 IMouseClickable v = hit.collider.GetComponentInParent<IMouseClickable>();
-                if(v != null)
+                Debug.Log(v);
+                if (v != null)
                 {
                     mouseClickable = v;
                     mouseClickable.MouseDown();
                     isMouseCaptured = true;
                 }
             }
-        }
-        else if (Input.GetMouseButtonUp(0))
+        } else if (Input.GetMouseButtonUp(0))
         {
             if(mouseClickable != null)
             {

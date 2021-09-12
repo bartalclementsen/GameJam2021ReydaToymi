@@ -134,8 +134,20 @@ public class PlayerController : MonoBehaviour
         rigidbody.AddForce(forceVector);
     }
 
+    private float lastCollisionTime = 0f;
+    private float minTimeBethweenCollisions = 1f;
+
     void OnCollisionEnter(Collision collision)
     {
+        
+        if(Time.time - lastCollisionTime <= minTimeBethweenCollisions)
+        {
+            logger.Log("CollisionEntered (ignored because of repetition)");
+            return; //Ignore this collision
+        }
+
+        logger.Log("CollisionEntered");
+        lastCollisionTime = Time.time;
         message.Publish(new PlayerCollidedMessage(collision));
 
         currentCollisions++;
