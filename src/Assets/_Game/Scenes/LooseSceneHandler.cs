@@ -5,11 +5,11 @@ public class LooseSceneHandler : MonoBehaviour
 {
     public void RetryGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
     }
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene(0);
     }
 }

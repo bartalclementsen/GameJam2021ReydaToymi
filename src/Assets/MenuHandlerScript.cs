@@ -37,6 +37,13 @@ public class MenuHandlerScript : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void ExitGame() {
         Time.timeScale = 1;
         Application.Quit();

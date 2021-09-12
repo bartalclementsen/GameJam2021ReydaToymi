@@ -29,12 +29,12 @@ public class LevelSceneHandler : MonoBehaviour {
 
     public void WinGame()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadScene(2);
     }
 
     public void LoseGame()
     {
-        SceneManager.LoadSceneAsync(3);
+        SceneManager.LoadScene(3);
     }
 
     public IEnumerator StartXR() {
