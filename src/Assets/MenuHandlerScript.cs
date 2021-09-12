@@ -40,7 +40,7 @@ public class MenuHandlerScript : MonoBehaviour {
     public void BackToMainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
         Cursor.lockState = CursorLockMode.None;
     }
 

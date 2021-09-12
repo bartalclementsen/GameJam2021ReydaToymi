@@ -40,7 +40,9 @@ public class PlayerController : MonoBehaviour
 
     private IMessenger message;
     private Core.Loggers.ILogger logger;
-    private Rigidbody rigidbody;
+
+    [SerializeField]
+    private Rigidbody myRigidbody;
 
     private float minEnginVolumen = 0.1f;
     private float lastCollisionTime = 0f;
@@ -58,12 +60,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
         startTime = Time.time;
 
         Cursor.lockState = CursorLockMode.Locked;
-
-        rigidbody = GetComponent<Rigidbody>();
+        //myRigidbody = GetComponent<Rigidbody>();
 
         logger = Game.Container.Resolve<Core.Loggers.ILoggerFactory>().Create(this);
 
@@ -74,6 +74,16 @@ public class PlayerController : MonoBehaviour
         accelerateYawMessage = message.Subscribe<AccelerateYawMessage>(HandleMessage);
         acceleratePitchMessage = message.Subscribe<AcceleratePitchMessage>(HandleMessage);
         accelerateRollMessage = message.Subscribe<AccelerateRollMessage>(HandleMessage);
+    }
+
+    private void OnDestroy()
+    {
+        accelerateXMessageToken?.Dispose();
+        accelerateYMessage?.Dispose();
+        accelerateZMessage?.Dispose();
+        accelerateYawMessage?.Dispose();
+        acceleratePitchMessage?.Dispose();
+        accelerateRollMessage?.Dispose();
     }
 
     private void Update()
@@ -89,25 +99,25 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var velocity = rigidbody.velocity;
+        var velocity = myRigidbody.velocity;
         var sqrMagnitude = velocity.sqrMagnitude;
         var newVelocity = velocity.normalized * maxSpeed;
 
         if (sqrMagnitude > newVelocity.sqrMagnitude)
         {
-            rigidbody.velocity = newVelocity;
+            myRigidbody.velocity = newVelocity;
         }
 
-        var angularVelocity = rigidbody.angularVelocity;
+        var angularVelocity = myRigidbody.angularVelocity;
         var angularSqrMagnitude = angularVelocity.sqrMagnitude;
         var angularNewVelocity = angularVelocity.normalized * maxSpeed;
 
         if (angularSqrMagnitude > angularNewVelocity.sqrMagnitude)
         {
-            rigidbody.angularVelocity = angularNewVelocity;
+            myRigidbody.angularVelocity = angularNewVelocity;
         }
 
-        float velocityFactor = Mathf.Max(0, Mathf.Min(1, rigidbody.velocity.sqrMagnitude / newVelocity.sqrMagnitude));
+        float velocityFactor = Mathf.Max(0, Mathf.Min(1, myRigidbody.velocity.sqrMagnitude / newVelocity.sqrMagnitude));
         float engineVolume = (1 - minEnginVolumen) * velocityFactor;
         float newVolume = minEnginVolumen + engineVolume;
 
@@ -121,20 +131,20 @@ public class PlayerController : MonoBehaviour
     private void HandleMessage(AccelerateXMessage message)
     {
         float forceValue = message.Value * acceleration * Time.deltaTime;
-        rigidbody.AddForce(transform.right * forceValue);
+        myRigidbody.AddForce(transform.right * forceValue);
     }
 
     private void HandleMessage(AccelerateYMessage message)
     {
         float forceValue = message.Value * acceleration * Time.deltaTime;
         
-        rigidbody.AddForce(Vector3.up * forceValue);
+        myRigidbody.AddForce(Vector3.up * forceValue);
     }
 
     private void HandleMessage(AccelerateZMessage message)
     {
         float forceValue = message.Value * acceleration * Time.deltaTime;
-        rigidbody.AddForce(transform.forward * forceValue);
+        myRigidbody.AddForce(transform.forward * forceValue);
     }
 
 
@@ -143,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
-        rigidbody.AddTorque(this.transform.up * forceValue);
+        myRigidbody.AddTorque(this.transform.up * forceValue);
     }
 
 
@@ -152,7 +162,7 @@ public class PlayerController : MonoBehaviour
     {
         float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
-        rigidbody.AddTorque(this.transform.right * forceValue);
+        myRigidbody.AddTorque(this.transform.right * forceValue);
     }
 
 
@@ -160,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {
         float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
-        rigidbody.AddTorque(this.transform.forward * forceValue);
+        myRigidbody.AddTorque(this.transform.forward * forceValue);
     }
 
     void OnCollisionEnter(Collision collision)

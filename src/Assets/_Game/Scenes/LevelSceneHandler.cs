@@ -1,3 +1,4 @@
+using Core.Mediators;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,23 +9,31 @@ using UnityEngine.XR.Management;
 public class LevelSceneHandler : MonoBehaviour {
 
     private Core.Mediators.IMessenger messenger;
-
     [SerializeField] GameObject Player, PlayerVR;
+
+    private ISubscriptionToken playerDeathMessageToken;
+    private ISubscriptionToken playerWonMessageToke;
 
     private void Start() {
         StartCoroutine(StartXR());
 
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
 
-        messenger.Subscribe<PlayerWonMessage>(m => {
+        playerWonMessageToke = messenger.Subscribe<PlayerWonMessage>(m => {
             Cursor.lockState = CursorLockMode.None;
             WinGame();
         });
 
-        messenger.Subscribe<PlayerDeathMessage>(m => {
+        playerDeathMessageToken = messenger.Subscribe<PlayerDeathMessage>(m => {
             Cursor.lockState = CursorLockMode.None;
             LoseGame();
         });
+    }
+
+    private void OnDestroy()
+    {
+        playerDeathMessageToken?.Dispose();
+        playerWonMessageToke?.Dispose();
     }
 
     public void WinGame()

@@ -33,6 +33,11 @@ public class PlayerCameraController : MonoBehaviour
         camera = GetComponent<Camera>();
     }
 
+    private void OnDestroy()
+    {
+        playerCollidedMessageToken?.Dispose();
+    }
+
     private bool isMouseCaptured = false;
     private IMouseClickable mouseClickable;
 

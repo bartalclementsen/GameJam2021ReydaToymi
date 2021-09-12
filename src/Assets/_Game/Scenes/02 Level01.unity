@@ -1099,6 +1099,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6440114938982476006, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
   m_PrefabInstance: {fileID: 8667171106196541286}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &281844315 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5138376842384526203, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+  m_PrefabInstance: {fileID: 8667171106196541286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &289764706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 719411826838592759, guid: 8f0233d548bac714eb578ae58bb019ae, type: 3}
@@ -1811,6 +1816,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5208510580849340726, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: myRigidbody
+      value: 
+      objectReference: {fileID: 1639512748}
     - target: {fileID: 8665282171134674637, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4407,6 +4416,11 @@ Transform:
 --- !u!1 &1639512746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+  m_PrefabInstance: {fileID: 624715782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1639512748 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4542114079409788957, guid: be17245c29e33f74a87326b5434b7511, type: 3}
   m_PrefabInstance: {fileID: 624715782}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1641084243 stripped
@@ -65532,6 +65546,14 @@ PrefabInstance:
       propertyPath: viveControllerScript
       value: 
       objectReference: {fileID: 1634213782}
+    - target: {fileID: 3463165807872860752, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463165807872860752, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: myRigidbody
+      value: 
+      objectReference: {fileID: 281844315}
     - target: {fileID: 5176534640814405369, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
       propertyPath: viveControllerScript
       value: 
