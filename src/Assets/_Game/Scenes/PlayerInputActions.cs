@@ -97,6 +97,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Value"",
+                    ""id"": ""ef711869-53b7-434c-b682-6984c10fcdfb"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -207,6 +215,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47aea855-5b7c-4f97-9fbc-a30aa29d4dd4"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -425,6 +444,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_LeftVRcontroller_PointerIsTracked = m_LeftVRcontroller.FindAction("PointerIsTracked", throwIfNotFound: true);
         m_LeftVRcontroller_DevicePoseIsTracked = m_LeftVRcontroller.FindAction("DevicePoseIsTracked", throwIfNotFound: true);
         m_LeftVRcontroller_Position = m_LeftVRcontroller.FindAction("Position", throwIfNotFound: true);
+        m_LeftVRcontroller_Newaction = m_LeftVRcontroller.FindAction("New action", throwIfNotFound: true);
         // RightVRcontroller
         m_RightVRcontroller = asset.FindActionMap("RightVRcontroller", throwIfNotFound: true);
         m_RightVRcontroller_GripPressed = m_RightVRcontroller.FindAction("GripPressed", throwIfNotFound: true);
@@ -496,6 +516,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_LeftVRcontroller_PointerIsTracked;
     private readonly InputAction m_LeftVRcontroller_DevicePoseIsTracked;
     private readonly InputAction m_LeftVRcontroller_Position;
+    private readonly InputAction m_LeftVRcontroller_Newaction;
     public struct LeftVRcontrollerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -510,6 +531,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @PointerIsTracked => m_Wrapper.m_LeftVRcontroller_PointerIsTracked;
         public InputAction @DevicePoseIsTracked => m_Wrapper.m_LeftVRcontroller_DevicePoseIsTracked;
         public InputAction @Position => m_Wrapper.m_LeftVRcontroller_Position;
+        public InputAction @Newaction => m_Wrapper.m_LeftVRcontroller_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_LeftVRcontroller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -549,6 +571,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Position.started -= m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface.OnPosition;
                 @Position.performed -= m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface.OnPosition;
                 @Position.canceled -= m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface.OnPosition;
+                @Newaction.started -= m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface.OnNewaction;
             }
             m_Wrapper.m_LeftVRcontrollerActionsCallbackInterface = instance;
             if (instance != null)
@@ -583,6 +608,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Position.started += instance.OnPosition;
                 @Position.performed += instance.OnPosition;
                 @Position.canceled += instance.OnPosition;
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
             }
         }
     }
@@ -704,6 +732,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnPointerIsTracked(InputAction.CallbackContext context);
         void OnDevicePoseIsTracked(InputAction.CallbackContext context);
         void OnPosition(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IRightVRcontrollerActions
     {

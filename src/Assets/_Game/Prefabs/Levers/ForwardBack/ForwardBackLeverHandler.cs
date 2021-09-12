@@ -37,9 +37,14 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
 
     private void Update()
     {
+        float mouseVelocity = Input.GetAxis("Mouse Y");
+        //float rightHandVelocity = TestViveControllerScript.GetRightHandAxisRawZ();
+        //float leftHandVelocity = TestViveControllerScript.GetLeftHandAxisRawZ();
+        //Debug.Log(mouseVelocity + " " + rightHandVelocity + " " + leftHandVelocity);
+
         if (isDragging)
         {
-            float increment = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
+            float increment = mouseVelocity * speed * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
             handle.transform.localRotation = Quaternion.Euler(current, 0, 0);
 
