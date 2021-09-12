@@ -53,13 +53,14 @@ public class PlayerCameraController : MonoBehaviour
             transform.rotation = localRotation;
         }
 
+        var ray = camera.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red, 0.1f);
+
         if (Input.GetMouseButtonDown(0))
         {
-            var ray = camera.ScreenPointToRay(Input.mousePosition);
             Debug.Log(Input.mousePosition);
             Debug.Log(ray.origin);
             Debug.Log(ray.direction);
-            Debug.DrawRay(ray.origin, ray.direction, Color.red, 10);
             //Debug.Break();
             if (Physics.Raycast(ray, out RaycastHit hit)) {
                 Debug.Log(hit, hit.collider.gameObject);
