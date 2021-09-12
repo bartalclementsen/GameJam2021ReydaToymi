@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c1ef527899994f4449bbe06848313416, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +143,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 906de18d9b991f24db141b2cf94bf907, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ec4a4c5d51d7145887705b0b977b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viveControllerScript: {fileID: 0}
   handle: {fileID: 3437215128199896428}
   audioClips:
   - {fileID: 8300000, guid: fbe1d58ae124a3f43b2ab29a0d0e7e8d, type: 3}
