@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LeverPitchHandler : MonoBehaviour, IMouseClickable
 {
+    public TestViveControllerScript viveControllerScript;
+
     [SerializeField]
     private float minMax = 0.2f;
 
@@ -28,7 +30,7 @@ public class LeverPitchHandler : MonoBehaviour, IMouseClickable
 
     private Core.Mediators.IMessenger messenger;
 
-    private Grabber grabber;
+    private Grabber grabber = Grabber.NONE;
 
     private void Start()
     {
@@ -43,9 +45,16 @@ public class LeverPitchHandler : MonoBehaviour, IMouseClickable
 
     private void Update()
     {
-        if (isDragging)
-        {
-            float increment = -Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
+        if (isDragging) {
+            float velocity =
+                grabber == Grabber.MOUSE
+                    ? Input.GetAxis("Mouse Y")
+                    : grabber == Grabber.RIGHT_VIVE
+                        ? viveControllerScript.getRightHandVelocity().y
+                        : viveControllerScript.getLeftHandVelocity().y;
+            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 3 : 1;
+
+            float increment = -velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
             handle.transform.localRotation = Quaternion.Euler(0, 0, current);
         }

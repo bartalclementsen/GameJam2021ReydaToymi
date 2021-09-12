@@ -223,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftController: {fileID: 2501007059003390022}
   RightController: {fileID: 8510172060994600253}
+  LeftCollider: {fileID: 6642426302023867040}
+  RightCollider: {fileID: 3119526271569873165}
   handsOrigin: {fileID: 2008764368}
 --- !u!1 &1895619717815442395
 GameObject:
@@ -379,7 +381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501007059003390022}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -454,9 +456,9 @@ MonoBehaviour:
     m_ActionName: LeftVRcontroller/TrackPadTouched
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7288075633728662281}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
-        m_MethodName: TriggerPressed
+        m_MethodName: LeftTriggerPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -552,6 +554,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3ce1107b-6d9d-404f-b961-4caed91fc164
     m_ActionName: RightVRcontroller/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef711869-53b7-434c-b682-6984c10fcdfb
+    m_ActionName: LeftVRcontroller/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: LeftVRcontroller
@@ -581,8 +587,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4267158994553709787}
-  m_LocalRotation: {x: -0, y: -0.009162936, z: -0, w: 0.99995804}
-  m_LocalPosition: {x: -0.07, y: -0.84, z: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: -1.4, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1798286479237316623}
@@ -727,7 +733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8510172060994600253}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -878,9 +884,9 @@ MonoBehaviour:
     m_ActionName: RightVRcontroller/TrackPadTouched[/HTCViveControllerOpenXR1/trackpadtouched]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7288075633728662281}
         m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
-        m_MethodName: TriggerPressed
+        m_MethodName: RightTriggerPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -900,6 +906,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3ce1107b-6d9d-404f-b961-4caed91fc164
     m_ActionName: RightVRcontroller/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef711869-53b7-434c-b682-6984c10fcdfb
+    m_ActionName: LeftVRcontroller/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: RightVRcontroller
@@ -912,9 +922,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 146674427900732122, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 7288075633728662281}
     - target: {fileID: 1732312246016869018, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
@@ -962,8 +976,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_Name
-      value: PlayerVR
+      value: PlayerVR Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3188327463490454243, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583726248961512445, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 3958536455124729438, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 4517656224203441196, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580518056917607839, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 7288075633728662281}
     - target: {fileID: 5698999631781019902, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -976,6 +1010,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6229000574850024855, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 8466892240604617563, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 7288075633728662281}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be17245c29e33f74a87326b5434b7511, type: 3}
 --- !u!4 &6995011189378070043 stripped

@@ -50,10 +50,10 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
         {
             float velocity = 
                 grabber == Grabber.MOUSE 
-                ? Input.GetAxis("Mouse Y")
-                : grabber == Grabber.RIGHT_VIVE
-                    ? viveControllerScript.getRightHandVelocity().z
-                    : viveControllerScript.getLeftHandVelocity().z;
+                    ? Input.GetAxis("Mouse Y")
+                    : grabber == Grabber.RIGHT_VIVE
+                        ? viveControllerScript.getRightHandVelocity().z
+                        : viveControllerScript.getLeftHandVelocity().z;
             float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 4 : 1;
 
             float increment = velocity * speed * speedMultiplier * Time.deltaTime;

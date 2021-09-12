@@ -28,9 +28,13 @@ public class TestViveControllerScript : MonoBehaviour {
         rightRotation *= Quaternion.Euler(0, 90, 0);
 
         RightHandPosition = rightPosition;
-        RightController.transform.position = RightHandPosition + handsOrigin.transform.position;
+        Vector3 rightX = handsOrigin.transform.forward * rightPosition.z;
+        Vector3 rightY = handsOrigin.transform.up * rightPosition.y;
+        Vector3 rightZ = handsOrigin.transform.right * rightPosition.x;
+        RightController.transform.position = (rightX + rightY + rightZ) + handsOrigin.transform.position;
+
         RightHandRotation = rightRotation;
-        RightController.transform.rotation = RightHandRotation;
+        //RightController.transform.rotation = RightHandRotation;
         RightHandVelocity = rightVelocity;
 
         device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.LeftHand);
@@ -40,9 +44,17 @@ public class TestViveControllerScript : MonoBehaviour {
         leftRotation *= Quaternion.Euler(0, 90, 0);
 
         LeftHandPosition = leftPosition;
-        LeftController.transform.position = LeftHandPosition + handsOrigin.transform.position;
+        Vector3 leftX = handsOrigin.transform.forward * leftPosition.z;
+        Vector3 leftY = handsOrigin.transform.up * leftPosition.y;
+        Vector3 leftZ = handsOrigin.transform.right * leftPosition.x;
+
+        LeftController.transform.position = (leftX + leftY + leftZ) + handsOrigin.transform.position;
+        
+        LeftController.transform.RotateAround(handsOrigin.transform.position, Vector3.up, handsOrigin.transform.rotation.x);
+        LeftController.transform.RotateAround(handsOrigin.transform.position, Vector3.forward, handsOrigin.transform.rotation.z);
+        LeftController.transform.RotateAround(handsOrigin.transform.position, Vector3.right, handsOrigin.transform.rotation.y);
         LeftHandRotation = leftRotation;
-        LeftController.transform.rotation = LeftHandRotation;
+        //LeftController.transform.rotation = LeftHandRotation;
         LeftHandVelocity = LeftVelocity;
     }
 
@@ -68,7 +80,7 @@ public class TestViveControllerScript : MonoBehaviour {
         var middle = (point0 + point1) / 2;
         var radius = col.radius; // gets really big for some reason
         radius = 0.1f;
-        var colliders = Physics.OverlapCapsule(point0, point1, radius);
+        var colliders = Physics.OverlapSphere(middle, radius);
         Debug.DrawLine(point0, point1, Color.red, 10);
         Debug.DrawLine(middle + Vector3.forward * radius, middle + Vector3.back * radius, Color.red, 10);
         Debug.DrawLine(middle + Vector3.left * radius, middle + Vector3.right * radius, Color.red, 10);
@@ -76,6 +88,7 @@ public class TestViveControllerScript : MonoBehaviour {
             a => {
                 var script = a.GetComponentInParent<IMouseClickable>();
                 if (script != null) {
+                    Debug.Log(script);
                     if (script.GetIsDragging()) {
                         script.MouseUp();
                     } else {

@@ -51,7 +51,7 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
                 : grabber == Grabber.RIGHT_VIVE
                     ? viveControllerScript.getRightHandVelocity().y
                     : viveControllerScript.getLeftHandVelocity().y;
-            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2 : 1;
+            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 1 : 1;
 
             float increment = velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Min(max, Mathf.Max(min, transform.localPosition.y + increment));
