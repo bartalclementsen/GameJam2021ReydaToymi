@@ -206,9 +206,236 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6211825655348195380}
+  - {fileID: 663471283926143961}
+  - {fileID: 2760028098345608701}
   m_Father: {fileID: 2323521147954431049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2501007059003390022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663471283926143961}
+  - component: {fileID: 9105225316448851425}
+  - component: {fileID: 2768064715493621508}
+  - component: {fileID: 7108424358012694117}
+  m_Layer: 0
+  m_Name: LeftController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663471283926143961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501007059003390022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1798286479237316623}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9105225316448851425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501007059003390022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2004299ae1db9394089c1cce52ab1746, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: Test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5b398f12-408d-485a-b56f-505d88a5e1b0
+    m_ActionName: VRcontroller/Grab
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: GripPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ebc6a445-9c19-46a1-88ff-85e5fcb389a5
+    m_ActionName: LeftVRcontroller/Grip
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 49e4fdf1-6a7d-44cf-a758-fdb511eb37ba
+    m_ActionName: LeftVRcontroller/TrackPadClick
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 55fc9f32-dc2d-4fbf-9df1-d59cd31d4844
+    m_ActionName: LeftVRcontroller/TrackPadTouched
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: TriggerPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8d02d9d0-2e06-4016-b0e8-ba36e40c29fb
+    m_ActionName: LeftVRcontroller/TriggerPressed
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42be60fb-c8b9-4f19-8b1f-5499c3db3ab8
+    m_ActionName: LeftVRcontroller/IsTracked
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 39da8be9-3dbc-492c-8af1-02529cad0f9b
+    m_ActionName: LeftVRcontroller/Menu
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94322e3c-73c8-4537-9a0c-55a85c864e77
+    m_ActionName: LeftVRcontroller/PointerIsTracked
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b04154dc-255c-4003-9eec-fa4b32358df6
+    m_ActionName: LeftVRcontroller/DevicePoseIsTracked
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d808fcde-eee5-435e-8d1d-d116ff5ff978
+    m_ActionName: RightVRcontroller/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 41617f19-1826-414d-95a7-49f6a478f96a
+    m_ActionName: RightVRcontroller/DevicePoseIsTracked[/HTCViveControllerOpenXR1/devicePose/isTracked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 220b8d1d-1773-4772-94ca-69f361c9f41c
+    m_ActionName: RightVRcontroller/IsTracked[/HTCViveControllerOpenXR1/isTracked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bb4dc936-235f-42be-a4e9-a5a0c4b17392
+    m_ActionName: RightVRcontroller/Menu[/HTCViveControllerOpenXR1/menu]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53e2f1e7-495d-4062-b391-de205762c98c
+    m_ActionName: RightVRcontroller/PointerIsTracked[/HTCViveControllerOpenXR1/pointer/isTracked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b9ee7161-2a1d-4871-ba3a-cc10e2b9712c
+    m_ActionName: RightVRcontroller/Select[/HTCViveControllerOpenXR1/select]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8362b6f6-3d11-475b-961e-6492da1b7e66
+    m_ActionName: RightVRcontroller/TrackPadClicked[/HTCViveControllerOpenXR1/trackpadclicked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d77fe11e-7415-4fd3-a537-7bb5a9cd9404
+    m_ActionName: RightVRcontroller/TrackPadTouched[/HTCViveControllerOpenXR1/trackpadtouched]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8f934a6f-3e08-4108-bb34-1c34bc4babaa
+    m_ActionName: RightVRcontroller/TriggerPressed[/HTCViveControllerOpenXR1/triggerpressed]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: LeftVRcontroller
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &2768064715493621508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501007059003390022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_PositionAction:
+    m_Name: Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ebf4bdb7-7667-4008-b769-1b241e6206a7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  m_RotationAction:
+    m_Name: Rotation
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4a44c661-a21a-4f97-89d2-19b52c338337
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+--- !u!114 &7108424358012694117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501007059003390022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f11fe96a7424644bf0c491d87886c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4267158994553709787
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,9 +482,233 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CameraFloorOffsetObject: {fileID: 1895619717815442395}
   m_RequestedTrackingMode: 0
-  m_TrackingOriginMode: 1
+  m_TrackingOriginMode: 2
   m_TrackingSpace: 0
   m_CameraYOffset: 1.36144
+--- !u!1 &8510172060994600253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2760028098345608701}
+  - component: {fileID: 351857880839256532}
+  - component: {fileID: 1470563850406195770}
+  m_Layer: 0
+  m_Name: RightController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2760028098345608701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510172060994600253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1798286479237316623}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &351857880839256532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510172060994600253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2004299ae1db9394089c1cce52ab1746, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5b398f12-408d-485a-b56f-505d88a5e1b0
+    m_ActionName: VRcontroller/Grab
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebc6a445-9c19-46a1-88ff-85e5fcb389a5
+    m_ActionName: LeftVRcontroller/Grip
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 49e4fdf1-6a7d-44cf-a758-fdb511eb37ba
+    m_ActionName: LeftVRcontroller/TrackPadClick
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 55fc9f32-dc2d-4fbf-9df1-d59cd31d4844
+    m_ActionName: LeftVRcontroller/TrackPadTouched
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d02d9d0-2e06-4016-b0e8-ba36e40c29fb
+    m_ActionName: LeftVRcontroller/TriggerPressed
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42be60fb-c8b9-4f19-8b1f-5499c3db3ab8
+    m_ActionName: LeftVRcontroller/IsTracked
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39da8be9-3dbc-492c-8af1-02529cad0f9b
+    m_ActionName: LeftVRcontroller/Menu
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94322e3c-73c8-4537-9a0c-55a85c864e77
+    m_ActionName: LeftVRcontroller/PointerIsTracked
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b04154dc-255c-4003-9eec-fa4b32358df6
+    m_ActionName: LeftVRcontroller/DevicePoseIsTracked
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: GripPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d808fcde-eee5-435e-8d1d-d116ff5ff978
+    m_ActionName: RightVRcontroller/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 41617f19-1826-414d-95a7-49f6a478f96a
+    m_ActionName: RightVRcontroller/DevicePoseIsTracked[/HTCViveControllerOpenXR1/devicePose/isTracked]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: IsTracked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 220b8d1d-1773-4772-94ca-69f361c9f41c
+    m_ActionName: RightVRcontroller/IsTracked[/HTCViveControllerOpenXR1/isTracked]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bb4dc936-235f-42be-a4e9-a5a0c4b17392
+    m_ActionName: RightVRcontroller/Menu[/HTCViveControllerOpenXR1/menu]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53e2f1e7-495d-4062-b391-de205762c98c
+    m_ActionName: RightVRcontroller/PointerIsTracked[/HTCViveControllerOpenXR1/pointer/isTracked]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b9ee7161-2a1d-4871-ba3a-cc10e2b9712c
+    m_ActionName: RightVRcontroller/Select[/HTCViveControllerOpenXR1/select]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8362b6f6-3d11-475b-961e-6492da1b7e66
+    m_ActionName: RightVRcontroller/TrackPadClicked[/HTCViveControllerOpenXR1/trackpadclicked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d77fe11e-7415-4fd3-a537-7bb5a9cd9404
+    m_ActionName: RightVRcontroller/TrackPadTouched[/HTCViveControllerOpenXR1/trackpadtouched]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7108424358012694117}
+        m_TargetAssemblyTypeName: TestViveControllerScript, Assembly-CSharp
+        m_MethodName: TriggerPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8f934a6f-3e08-4108-bb34-1c34bc4babaa
+    m_ActionName: RightVRcontroller/TriggerPressed[/HTCViveControllerOpenXR1/triggerpressed]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: RightVRcontroller
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1470563850406195770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510172060994600253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_PositionAction:
+    m_Name: Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ebf4bdb7-7667-4008-b769-1b241e6206a7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  m_RotationAction:
+    m_Name: Rotation
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4a44c661-a21a-4f97-89d2-19b52c338337
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
 --- !u!1001 &8667171105467339622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,6 +716,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1732312246016869018, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -313,9 +768,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerVR Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5698999631781019902, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5840362713421886881, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229000574850024854, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be17245c29e33f74a87326b5434b7511, type: 3}
