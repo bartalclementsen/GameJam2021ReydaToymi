@@ -61,6 +61,9 @@ public class LeverRollHandler : MonoBehaviour, IMouseClickable
         if (current > 0.1 || current < -0.1)
         {
             float movementValue = current / 90.0f;
+
+            
+
             messenger.Publish(new AccelerateRollMessage(movementValue));
         }
     }

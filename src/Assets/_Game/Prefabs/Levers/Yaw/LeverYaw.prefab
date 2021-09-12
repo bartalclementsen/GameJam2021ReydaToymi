@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMax: 0.2
   handle: {fileID: 5166409492711953798}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 9af8ab1934814b4418cb4fb7506cc25d, type: 3}
   audioSource: {fileID: 8143478789886855554}
 --- !u!1 &2528674337070841819
 GameObject:
@@ -91,11 +91,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9af8ab1934814b4418cb4fb7506cc25d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
