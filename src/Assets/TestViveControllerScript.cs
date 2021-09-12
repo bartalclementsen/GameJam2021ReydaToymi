@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class TestViveControllerScript : MonoBehaviour {
 
-    Vector3 RightHandPosition, LeftHandPosition;
-    Quaternion RightHandRotation, LeftHandRotation;
+    static Vector3 RightHandPosition, RightHandVelocity, LeftHandPosition, LeftHandVelocity;
+    static Quaternion RightHandRotation, LeftHandRotation;
 
     public GameObject LeftController, RightController;
     public GameObject handsOrigin;
@@ -19,29 +19,39 @@ public class TestViveControllerScript : MonoBehaviour {
     }
 
     private void Update() {
-        //var inputDevices = new List<UnityEngine.XR.InputDevice>();
-        //UnityEngine.XR.InputDevices.GetDevices(inputDevices);
-        //foreach (var device in inputDevices) {
-        //    Debug.Log(string.Format("Device found with name '{0}' and role '{1}'", device.name, device.role.ToString()));
+        var device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.RightHand);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceAngularVelocity, out var rightVelocity);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.devicePosition, out var rightPosition);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceRotation, out var rightRotation);
+        rightRotation *= Quaternion.Euler(0, 90, 0);
 
-        //    Debug.Log(UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand));
-        //    // TElls me to use the below code, but it also won't accept it
-        //    //Debug.Log(device.TryGetFeatureValue(CommonUsages.devicePosition, out bool pos));
-        //}
-
-        RightHandPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
-        RightController.transform.position = handsOrigin.transform.position + RightHandPosition;
-        RightHandRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand);
+        RightHandPosition = rightPosition;
+        RightController.transform.position = RightHandPosition + handsOrigin.transform.position;
+        RightHandRotation = rightRotation;
         RightController.transform.rotation = RightHandRotation;
-        RightController.transform.rotation *= Quaternion.Euler(0, 90, 0);
+        RightHandVelocity = rightVelocity;
 
-        LeftHandPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftHand);
-        LeftController.transform.position = handsOrigin.transform.position + LeftHandPosition;
-        LeftHandRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftHand);
+        device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.LeftHand);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceAngularVelocity, out var LeftVelocity);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.devicePosition, out var leftPosition);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceRotation, out var leftRotation);
+        leftRotation *= Quaternion.Euler(0, 90, 0);
+
+        LeftHandPosition = leftPosition;
+        LeftController.transform.position = LeftHandPosition + handsOrigin.transform.position;
+        LeftHandRotation = leftRotation;
         LeftController.transform.rotation = LeftHandRotation;
-        LeftController.transform.rotation *= Quaternion.Euler(0, 90, 0);
+        LeftHandVelocity = LeftVelocity;
     }
 
+    public Vector3 getRightHandVelocity() {
+        return RightHandVelocity;
+    }
+    public Vector3 getLeftHandVelocity() {
+        return RightHandVelocity;
+    }
+
+    #region events
     private void OnLeftPositionPerformed(InputAction.CallbackContext obj) {
         Debug.Log(obj);
     }
@@ -78,5 +88,5 @@ public class TestViveControllerScript : MonoBehaviour {
         Debug.Log("Position");
         Debug.Log(position);
     }
-
+    #endregion
 }

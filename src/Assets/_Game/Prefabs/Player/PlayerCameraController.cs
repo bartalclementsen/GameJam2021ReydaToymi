@@ -58,10 +58,6 @@ public class PlayerCameraController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(Input.mousePosition);
-            Debug.Log(ray.origin);
-            Debug.Log(ray.direction);
-            //Debug.Break();
             if (Physics.Raycast(ray, out RaycastHit hit)) {
                 Debug.Log(hit, hit.collider.gameObject);
                 IMouseClickable v = hit.collider.GetComponentInParent<IMouseClickable>();
