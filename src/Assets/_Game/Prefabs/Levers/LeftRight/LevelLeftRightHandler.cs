@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelLeftRightHandler : MonoBehaviour, IMouseClickable
 {
+
+    public TestViveControllerScript viveControllerScript;
+
     [SerializeField]
     private GameObject handle;
 
@@ -25,6 +28,8 @@ public class LevelLeftRightHandler : MonoBehaviour, IMouseClickable
 
     private Core.Mediators.IMessenger messenger;
 
+    private Grabber grabber = Grabber.NONE;
+
     private void Start()
     {
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
@@ -34,7 +39,15 @@ public class LevelLeftRightHandler : MonoBehaviour, IMouseClickable
     {
         if (isDragging)
         {
-            float increment = -Input.GetAxis("Mouse X") * speed * Time.deltaTime;
+            float velocity =
+                grabber == Grabber.MOUSE
+                    ? Input.GetAxis("Mouse X")
+                    : grabber == Grabber.RIGHT_VIVE
+                        ? viveControllerScript.getRightHandVelocity().x
+                        : viveControllerScript.getLeftHandVelocity().x;
+            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2 : 1;
+
+            float increment = -velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
             handle.transform.localRotation = Quaternion.Euler(0, current, 0);
 
@@ -61,6 +74,10 @@ public class LevelLeftRightHandler : MonoBehaviour, IMouseClickable
     public void MouseUp()
     {
         isDragging = false;
+    }
+
+    public void SetGrabber(Grabber g) {
+        grabber = g;
     }
 
     private void PlaySound()

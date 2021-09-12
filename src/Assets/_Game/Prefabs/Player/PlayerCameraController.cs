@@ -50,22 +50,15 @@ public class PlayerCameraController : MonoBehaviour
             rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
             Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-            transform.rotation = localRotation;
+            transform.localRotation = localRotation;
         }
 
-        var ray = camera.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction, Color.red, 0.1f);
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(Input.mousePosition);
-            Debug.Log(ray.origin);
-            Debug.Log(ray.direction);
-            //Debug.Break();
+            var ray = camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit)) {
-                Debug.Log(hit, hit.collider.gameObject);
                 IMouseClickable v = hit.collider.GetComponentInParent<IMouseClickable>();
-                Debug.Log(v);
                 if (v != null)
                 {
                     mouseClickable = v;

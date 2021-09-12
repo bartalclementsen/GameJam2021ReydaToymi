@@ -30,6 +30,21 @@ public class AccelerateZMessage : AccelerateMessage
     public AccelerateZMessage(float value) : base(value) { }
 }
 
+public class AccelerateYawMessage : AccelerateMessage
+{
+    public AccelerateYawMessage(float value) : base(value) { }
+}
+
+public class AcceleratePitchMessage : AccelerateMessage
+{
+    public AcceleratePitchMessage(float value) : base(value) { }
+}
+
+public class AccelerateRollMessage : AccelerateMessage
+{
+    public AccelerateRollMessage(float value) : base(value) { }
+}
+
 public class PlayerCollidedMessage : Core.Mediators.Message
 {
     public Collision Collision { get; }

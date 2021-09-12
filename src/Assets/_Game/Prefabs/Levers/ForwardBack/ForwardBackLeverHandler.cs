@@ -5,10 +5,14 @@ public interface IMouseClickable
     void MouseDown();
 
     void MouseUp();
+
+    void SetGrabber(Grabber g);
 }
 
-public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
-{
+public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
+    
+    public TestViveControllerScript viveControllerScript;
+
     [SerializeField]
     private GameObject handle;
 
@@ -30,6 +34,8 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
     
     private Core.Mediators.IMessenger messenger;
 
+    private Grabber grabber = Grabber.NONE;
+
     private void Start()
     {
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
@@ -37,13 +43,21 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
 
     private void Update()
     {
+
         if (isDragging)
         {
-            float increment = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
-            Debug.Log(increment);
+            float velocity = 
+                grabber == Grabber.MOUSE 
+                ? Input.GetAxis("Mouse Y")
+                : grabber == Grabber.RIGHT_VIVE
+                    ? viveControllerScript.getRightHandVelocity().z
+                    : viveControllerScript.getLeftHandVelocity().z;
+            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2.5f : 1;
+
+            float increment = velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
             handle.transform.localRotation = Quaternion.Euler(current, 0, 0);
-
+            
             PlaySound();
         }
         else
@@ -67,6 +81,11 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
     public void MouseUp()
     {
         isDragging = false;
+        grabber = Grabber.NONE;
+    }
+
+    public void SetGrabber(Grabber g) {
+        grabber = g;
     }
 
     private void PlaySound()
@@ -86,5 +105,9 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
             audioSource.Play();
         }
     }
+
 }
 
+public enum Grabber {
+    MOUSE, LEFT_VIVE, RIGHT_VIVE, NONE
+}

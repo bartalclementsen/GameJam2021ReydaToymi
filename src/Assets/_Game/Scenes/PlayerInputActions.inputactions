@@ -84,6 +84,14 @@
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "New action",
+                    "type": "Value",
+                    "id": "ef711869-53b7-434c-b682-6984c10fcdfb",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -194,6 +202,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47aea855-5b7c-4f97-9fbc-a30aa29d4dd4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

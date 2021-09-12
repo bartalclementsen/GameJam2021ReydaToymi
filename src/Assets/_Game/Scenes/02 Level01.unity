@@ -1111,6 +1111,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5522555730333745174, guid: 8c0bc5ee62ec6aa468076e69ee59d28f, type: 3}
   m_PrefabInstance: {fileID: 8023412878413037567}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &449091068 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 6642426302023867040, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+  m_PrefabInstance: {fileID: 8667171106196541286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &453909215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1784664228646468133, guid: ad76e282452137341979dfca29d23d7a, type: 3}
@@ -1418,7 +1423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8665282171134674637, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_IsActive
@@ -2612,6 +2617,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 971474945405736252, guid: d2d451c6c97b8214db03a0ac51f37be6, type: 3}
   m_PrefabInstance: {fileID: 8023412878819857404}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1175497393 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 3119526271569873165, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+  m_PrefabInstance: {fileID: 8667171106196541286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1178103231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 971474945405736252, guid: d2d451c6c97b8214db03a0ac51f37be6, type: 3}
@@ -3161,7 +3171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62127509dcdd6740a49518331359b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
+  mode: 1
   WithVR: {fileID: 1390220915}
   WithoutVR: {fileID: 1145769096}
 --- !u!4 &1387604668
@@ -3690,6 +3700,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8155123800540019874, guid: 060aa040c712fb54884659f432dbcdaa, type: 3}
   m_PrefabInstance: {fileID: 8023412878849891666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1634213782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7288075633728662281, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+  m_PrefabInstance: {fileID: 8667171106196541286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f11fe96a7424644bf0c491d87886c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1635518302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1180285284206609495, guid: 177a0cd1ed2a45245bbc8c3956455cde, type: 3}
@@ -64347,9 +64368,73 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 1145769100}
+    - target: {fileID: 351857880839256532, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 351857880839256532, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
+      value: ef711869-53b7-434c-b682-6984c10fcdfb
+      objectReference: {fileID: 0}
+    - target: {fileID: 351857880839256532, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
+      value: LeftVRcontroller/New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 351857880839256532, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1634213782}
+    - target: {fileID: 351857880839256532, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RightTriggerPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323521147954431049, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329885490522019569, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 1634213782}
+    - target: {fileID: 5176534640814405369, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 1634213782}
+    - target: {fileID: 5667905328852610360, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: viveControllerScript
+      value: 
+      objectReference: {fileID: 1634213782}
     - target: {fileID: 6440114938982476006, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
       propertyPath: m_Name
       value: PlayerVR
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440114938982476006, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6995011189378070043, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
       propertyPath: m_RootOrder
@@ -64394,6 +64479,34 @@ PrefabInstance:
     - target: {fileID: 6995011189378070043, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288075633728662281, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: LeftCollider
+      value: 
+      objectReference: {fileID: 449091068}
+    - target: {fileID: 7288075633728662281, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: RightCollider
+      value: 
+      objectReference: {fileID: 1175497393}
+    - target: {fileID: 9105225316448851425, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105225316448851425, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
+      value: ef711869-53b7-434c-b682-6984c10fcdfb
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105225316448851425, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
+      value: LeftVRcontroller/New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105225316448851425, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1634213782}
+    - target: {fileID: 9105225316448851425, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LeftTriggerPressed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e9a7e36912be9546b70cc19415b2a60, type: 3}
