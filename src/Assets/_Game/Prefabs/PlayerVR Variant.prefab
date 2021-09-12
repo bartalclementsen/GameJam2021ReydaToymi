@@ -321,7 +321,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b80a0a92dce50e24f838ce63a38e9bc6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -673,7 +673,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b80a0a92dce50e24f838ce63a38e9bc6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -926,10 +926,18 @@ PrefabInstance:
       propertyPath: viveControllerScript
       value: 
       objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 563795442377920887, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1732312246016869018, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 1777164170658168994, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfe0e8af2d4e0f446a047a258d4d6692, type: 2}
     - target: {fileID: 1825294506026214781, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -974,14 +982,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2227339302930633361, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfe0e8af2d4e0f446a047a258d4d6692, type: 2}
     - target: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_Name
       value: PlayerVR Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673541538559754852, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3188327463490454243, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 3444833664390558484, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfe0e8af2d4e0f446a047a258d4d6692, type: 2}
     - target: {fileID: 3583726248961512445, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: viveControllerScript
       value: 
@@ -992,12 +1012,16 @@ PrefabInstance:
       objectReference: {fileID: 7288075633728662281}
     - target: {fileID: 4517656224203441196, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4580518056917607839, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: viveControllerScript
       value: 
       objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 5300877685375754321, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5698999631781019902, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1014,10 +1038,22 @@ PrefabInstance:
       propertyPath: viveControllerScript
       value: 
       objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 7283150342936128197, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfe0e8af2d4e0f446a047a258d4d6692, type: 2}
     - target: {fileID: 8466892240604617563, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: viveControllerScript
       value: 
       objectReference: {fileID: 7288075633728662281}
+    - target: {fileID: 8979278810856512593, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005028531109402873, guid: be17245c29e33f74a87326b5434b7511, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be17245c29e33f74a87326b5434b7511, type: 3}
 --- !u!4 &6995011189378070043 stripped
