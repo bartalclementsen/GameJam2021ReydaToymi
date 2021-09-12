@@ -60,40 +60,9 @@ public class LeverYawHandler : MonoBehaviour, IMouseClickable
 
         if (current > 0.1 || current < -0.1)
         {
-            float movementValue = current / 60.0f;
+            float movementValue = current / 90.0f;
             messenger.Publish(new AccelerateYawMessage(movementValue));
         }
-
-
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    messenger.Publish(new AccelerateYawMessage(-1));
-        //}
-
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    messenger.Publish(new AccelerateYawMessage(1));
-        //}
-
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    messenger.Publish(new AcceleratePitchMessage(-1));
-        //}
-
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    messenger.Publish(new AcceleratePitchMessage(1));
-        //}
-
-        //if (Input.GetKey(KeyCode.Q))
-        //{
-        //    messenger.Publish(new AccelerateRollMessage(-1));
-        //}
-
-        //if (Input.GetKey(KeyCode.E))
-        //{
-        //    messenger.Publish(new AccelerateRollMessage(1));
-        //}
     }
 
     public void MouseDown()

@@ -129,44 +129,19 @@ public class PlayerController : MonoBehaviour
     {
         float forceValue = message.Value * acceleration * Time.deltaTime;
         rigidbody.AddForce(transform.right * forceValue);
-
-        //float forceValue = Mathf.Abs(message.Value) * acceleration * Time.deltaTime;
-
-        //var forceVector = new Vector3(forceValue, 0, 0);
-        //if (message.Value < 0)
-        //    forceVector = forceVector * -1;
-
-        //rigidbody.AddForce(forceVector);
     }
 
     private void HandleMessage(AccelerateYMessage message)
     {
-
         float forceValue = message.Value * acceleration * Time.deltaTime;
         
         rigidbody.AddForce(Vector3.up * forceValue);
-
-        //float forceValue = Mathf.Abs(message.Value) * acceleration * Time.deltaTime;
-
-        //var forceVector = new Vector3(0, forceValue, 0);
-        //if (message.Value < 0)
-        //    forceVector = forceVector * -1;
-
-        //rigidbody.AddForce(forceVector);
     }
 
     private void HandleMessage(AccelerateZMessage message)
     {
         float forceValue = message.Value * acceleration * Time.deltaTime;
         rigidbody.AddForce(transform.forward * forceValue);
-
-        //float forceValue = Mathf.Abs(message.Value) * acceleration * Time.deltaTime;
-
-        //var forceVector = new Vector3(0, 0, forceValue);
-        //if (message.Value < 0)
-        //    forceVector = forceVector * -1;
-
-        //rigidbody.AddForce(forceVector);
     }
 
 
@@ -174,10 +149,6 @@ public class PlayerController : MonoBehaviour
     private void HandleMessage(AccelerateYawMessage message)
     {
         float forceValue = message.Value * rollAcceleration * Time.deltaTime;
-
-        //var forceVector = new Vector3(0, 0, forceValue);
-        //if (message.Value < 0)
-        //    forceVector = forceVector * -1;
 
         rigidbody.AddTorque(this.transform.up * forceValue);
     }
@@ -188,10 +159,6 @@ public class PlayerController : MonoBehaviour
     {
         float forceValue = message.Value * rollAcceleration * Time.deltaTime;
 
-        //var forceVector = new Vector3(0, 0, forceValue);
-        //if (message.Value < 0)
-        //    forceVector = forceVector * -1;
-
         rigidbody.AddTorque(this.transform.right * forceValue);
     }
 
@@ -199,10 +166,6 @@ public class PlayerController : MonoBehaviour
     private void HandleMessage(AccelerateRollMessage message)
     {
         float forceValue = message.Value * rollAcceleration * Time.deltaTime;
-
-        //var forceVector = new Vector3(0, 0, forceValue);
-        //if (message.Value < 0)
-        //    forceVector = forceVector * -1;
 
         rigidbody.AddTorque(this.transform.forward * forceValue);
     }

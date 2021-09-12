@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeverPitchHandler : MonoBehaviour, IMouseClickable
+public class LeverRollHandler : MonoBehaviour, IMouseClickable
 {
     [SerializeField]
     private float minMax = 0.2f;
@@ -43,7 +43,7 @@ public class LeverPitchHandler : MonoBehaviour, IMouseClickable
     {
         if (isDragging)
         {
-            float increment = -Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
+            float increment = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
             handle.transform.localRotation = Quaternion.Euler(0, 0, current);
         }
@@ -61,7 +61,7 @@ public class LeverPitchHandler : MonoBehaviour, IMouseClickable
         if (current > 0.1 || current < -0.1)
         {
             float movementValue = current / 90.0f;
-            messenger.Publish(new AcceleratePitchMessage(movementValue));
+            messenger.Publish(new AccelerateRollMessage(movementValue));
         }
     }
 
