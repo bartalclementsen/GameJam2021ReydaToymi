@@ -10,8 +10,8 @@ public class EnablePlayerScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Awake() {
-        WithoutVR.SetActive(mode == PlayerMode.NORMAL || mode == PlayerMode.BOTH);
-        WithVR.SetActive(mode == PlayerMode.VR || mode == PlayerMode.BOTH);
+        //WithoutVR.SetActive(mode == PlayerMode.NORMAL || mode == PlayerMode.BOTH);
+        //WithVR.SetActive(mode == PlayerMode.VR || mode == PlayerMode.BOTH);
     }
 
 }
