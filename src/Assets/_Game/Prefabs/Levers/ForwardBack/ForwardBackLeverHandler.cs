@@ -40,7 +40,6 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable
         if (isDragging)
         {
             float increment = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
-            Debug.Log(increment);
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
             handle.transform.localRotation = Quaternion.Euler(current, 0, 0);
 
