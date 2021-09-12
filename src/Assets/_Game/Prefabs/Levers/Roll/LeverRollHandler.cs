@@ -28,6 +28,8 @@ public class LeverRollHandler : MonoBehaviour, IMouseClickable
 
     private Core.Mediators.IMessenger messenger;
 
+    private Grabber grabber;
+
     private void Start()
     {
         messenger = Game.Container.Resolve<Core.Mediators.IMessenger>();
@@ -73,6 +75,10 @@ public class LeverRollHandler : MonoBehaviour, IMouseClickable
     public void MouseUp()
     {
         isDragging = false;
+    }
+
+    public void SetGrabber(Grabber g) {
+        grabber = g;
     }
 
     private void PlaySound()

@@ -52,7 +52,7 @@ public class ForwardBackLeverHandler : MonoBehaviour, IMouseClickable {
                 : grabber == Grabber.RIGHT_VIVE
                     ? viveControllerScript.getRightHandVelocity().z
                     : viveControllerScript.getLeftHandVelocity().z;
-            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2 : 1;
+            float speedMultiplier = grabber == Grabber.RIGHT_VIVE || grabber == Grabber.LEFT_VIVE ? 2.5f : 1;
 
             float increment = velocity * speed * speedMultiplier * Time.deltaTime;
             current = Mathf.Max(min, Mathf.Min(max, current + increment));
