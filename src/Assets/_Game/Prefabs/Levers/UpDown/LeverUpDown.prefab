@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83d2f9688242845be46c515077057f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viveControllerScript: {fileID: 0}
   minMax: 0.1
   positiveAudioClip:
   - {fileID: 8300000, guid: 01dfd901ac220ea4db65675d0feb7841, type: 3}
@@ -112,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e379ad68000567541aaa1b471c0d1ac3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
