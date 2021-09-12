@@ -36,17 +36,18 @@ public class LevelSceneHandler : MonoBehaviour {
     {
         SceneManager.LoadSceneAsync(3);
     }
-    // https://forum.unity.com/threads/how-to-detect-if-headset-is-available-and-initialize-xr-only-if-true.927134/#post-6600589
+
     public IEnumerator StartXR() {
-        yield return XRGeneralSettings.Instance.Manager.InitializeLoader();
-        if (XRGeneralSettings.Instance.Manager.activeLoader != null) {
-            bool loaderSuccess = XRGeneralSettings.Instance.Manager.activeLoader.Start();
-            if (loaderSuccess) {
-                PlayerVR.SetActive(true);
+        yield return new WaitForSeconds(1); 
+        var inputDevices = new List<InputDevice>();
+        InputDevices.GetDevices(inputDevices);
+        foreach (var device in inputDevices) {
+            if (device.name.ToLowerInvariant() == "head tracking - openxr".ToLowerInvariant()) {
+                Player.SetActive(false);
                 yield break;
             }
         }
-        Player.SetActive(true);
+        PlayerVR.SetActive(false);
     }
 
 }

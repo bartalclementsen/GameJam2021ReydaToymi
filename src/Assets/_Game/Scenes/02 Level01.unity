@@ -682,6 +682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a07ea8c9e5f4be4b947cf79aac7c1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1145769096}
+  PlayerVR: {fileID: 1390220915}
 --- !u!4 &247366525
 Transform:
   m_ObjectHideFlags: 0
@@ -1423,7 +1425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2384682774672292736, guid: be17245c29e33f74a87326b5434b7511, type: 3}
       propertyPath: m_TagString
