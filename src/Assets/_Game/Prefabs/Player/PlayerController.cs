@@ -2,9 +2,14 @@ using Core.Mediators;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private float startTime = 0f;
+
+    private int currentCollisions = 0;
+    private int maxCollisions = 3;
 
     [SerializeField]
     private float acceleration = 50;
@@ -21,6 +26,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioSource collisionAudioSource;
 
+    [SerializeField]
+    private AudioClip[] collisionSounds;
+
+    [SerializeField]
+    private Text timeText;
+
+    [SerializeField]
+    private Text crashesText;
+
     private IMessenger message;
     private Core.Loggers.ILogger logger;
     private Rigidbody rigidbody;
@@ -33,6 +47,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        startTime = Time.time;
+
+        Cursor.lockState = CursorLockMode.Locked;
+
         rigidbody = GetComponent<Rigidbody>();
 
         logger = Game.Container.Resolve<Core.Loggers.ILoggerFactory>().Create(this);
@@ -48,6 +66,17 @@ public class PlayerController : MonoBehaviour
         accelerateXMessageToken.Dispose();
         accelerateYMessage.Dispose();
         accelerateZMessage.Dispose();
+    }
+
+    private void Update()
+    {
+        var secondsSinceStart = (int)(Time.time - startTime);
+
+        var seconds = secondsSinceStart % 60;
+        var minutes = (secondsSinceStart - seconds) / 60;
+        timeText.text = $"{minutes:##00}:{seconds:00}";
+
+        crashesText.text = $"Crashes {currentCollisions}/{maxCollisions}";
     }
 
     private void FixedUpdate()
@@ -104,16 +133,30 @@ public class PlayerController : MonoBehaviour
 
         rigidbody.AddForce(forceVector);
     }
+
     void OnCollisionEnter(Collision collision)
     {
-        // Debug-draw all contact points and normals
-        foreach (ContactPoint contact in collision.contacts)
+        message.Publish(new PlayerCollidedMessage(collision));
+
+        currentCollisions++;
+
+        var firstContact = collision.contacts[0];
+        PlayCollisionSound(firstContact.point);
+
+        if(currentCollisions >= maxCollisions)
         {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
+            message.Publish(new PlayerDeathMessage(PlayerDeathType.Collisions));
         }
+    }
 
-        logger.Log($"Collided with {collision.gameObject?.name}");
+    private void PlayCollisionSound(Vector3 position)
+    {
+        int index = Random.Range(0, collisionSounds.Length - 1);
+        AudioClip collisionAudioClip = collisionSounds[index];
 
+        // TODO: Figure out how to move the collision audio source
+        //collisionAudioSource.transform.position = position;
+        collisionAudioSource.clip = collisionAudioClip;
         collisionAudioSource.Play();
     }
 }
