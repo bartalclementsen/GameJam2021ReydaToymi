@@ -7,6 +7,15 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
     [SerializeField]
     private float minMax = 0.2f;
 
+    [SerializeField]
+    private AudioClip[] positiveAudioClip;
+    
+    [SerializeField]
+    private AudioClip[] negativeAudioClip;
+
+    [SerializeField]
+    private AudioSource audioSource;
+
     private float min = 0;
 
     private float max = 0;
@@ -25,6 +34,8 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
         current = transform.localPosition.y;
         min = current - minMax;
         max = current + minMax;
+
+        audioSource.loop = true;
     }
 
     private void Update()
@@ -40,6 +51,16 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
         var fraction = (diff / (minMax * 2));
         var movementValue = fraction * 2 - 1;
 
+        if (isDragging)
+        {
+            PlaySound(movementValue);
+        }
+        else
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+        }
+
         if (movementValue > 0.1 || movementValue < -0.1)
         {
             messenger.Publish(new AccelerateYMessage(movementValue));
@@ -54,5 +75,29 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
     public void MouseUp()
     {
         isDragging = false;
+    }
+
+    private void PlaySound(float volume)
+    {
+        if (audioSource == null)
+            return;
+
+        if (positiveAudioClip == null)
+            return;
+
+        int index = Random.Range(0, positiveAudioClip.Length - 2);
+        AudioClip collisionAudioClip = negativeAudioClip[index];
+        if(volume < 0)
+        {
+            collisionAudioClip = positiveAudioClip[index];
+        }
+        
+        audioSource.volume = Mathf.Abs(volume);
+
+        if (audioSource.isPlaying == false || audioSource.clip != collisionAudioClip)
+        {
+            audioSource.clip = collisionAudioClip;
+            audioSource.Play();
+        }
     }
 }
