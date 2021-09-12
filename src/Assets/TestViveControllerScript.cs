@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,7 @@ public class TestViveControllerScript : MonoBehaviour {
     static Quaternion RightHandRotation, LeftHandRotation;
 
     public GameObject LeftController, RightController;
+    public CapsuleCollider LeftCollider, RightCollider;
     public GameObject handsOrigin;
 
     private void Start() {
@@ -20,7 +22,7 @@ public class TestViveControllerScript : MonoBehaviour {
 
     private void Update() {
         var device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.RightHand);
-        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceAngularVelocity, out var rightVelocity);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceVelocity, out var rightVelocity);
         device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.devicePosition, out var rightPosition);
         device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceRotation, out var rightRotation);
         rightRotation *= Quaternion.Euler(0, 90, 0);
@@ -32,7 +34,7 @@ public class TestViveControllerScript : MonoBehaviour {
         RightHandVelocity = rightVelocity;
 
         device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.LeftHand);
-        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceAngularVelocity, out var LeftVelocity);
+        device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceVelocity, out var LeftVelocity);
         device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.devicePosition, out var leftPosition);
         device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceRotation, out var leftRotation);
         leftRotation *= Quaternion.Euler(0, 90, 0);
@@ -44,14 +46,45 @@ public class TestViveControllerScript : MonoBehaviour {
         LeftHandVelocity = LeftVelocity;
     }
 
-    public Vector3 getRightHandVelocity() {
-        return RightHandVelocity;
-    }
-    public Vector3 getLeftHandVelocity() {
-        return RightHandVelocity;
+    public Vector3 getRightHandVelocity() => RightHandVelocity;
+    public Vector3 getLeftHandVelocity() =>  LeftHandVelocity;
+
+    public void LeftTriggerPressed() {
+        GetOverlaps(LeftCollider, Grabber.LEFT_VIVE);
     }
 
-    #region events
+    public void RightTriggerPressed() {
+        GetOverlaps(RightCollider, Grabber.RIGHT_VIVE);
+    }
+
+    private void GetOverlaps(CapsuleCollider collider, Grabber grabber) {
+        var col = collider;
+        var direction = new Vector3 { [col.direction] = 1 };
+        var offset = col.height / 2 - col.radius;
+        var localPoint0 = col.center - direction * offset;
+        var localPoint1 = col.center + direction * offset;
+        var point0 = col.transform.position + localPoint0;
+        var point1 = col.transform.position + localPoint1;
+        var middle = (point0 + point1) / 2;
+        var radius = col.radius; // gets really big for some reason
+        radius = 0.1f;
+        var colliders = Physics.OverlapCapsule(point0, point1, radius);
+        //Debug.DrawLine(point0, point1, Color.red, 10);
+        //Debug.DrawLine(middle + Vector3.forward * radius, middle + Vector3.back * radius, Color.red, 10);
+        //Debug.DrawLine(middle + Vector3.left * radius, middle + Vector3.right * radius, Color.red, 10);
+        colliders.ToList().ForEach(
+            a => {
+                var script = a.GetComponentInParent<IMouseClickable>();
+                if (script != null) {
+                    script.MouseDown();
+                    script.SetGrabber(grabber);
+                }
+            }
+        );
+
+    }
+
+    #region unused events
     private void OnLeftPositionPerformed(InputAction.CallbackContext obj) {
         Debug.Log(obj);
     }
@@ -62,10 +95,6 @@ public class TestViveControllerScript : MonoBehaviour {
 
     public void Test() {
         Debug.Log("here");
-    }
-
-    public void TriggerPressed() {
-        Debug.Log("TriggerPressed");
     }
 
     public void GripPressed() {

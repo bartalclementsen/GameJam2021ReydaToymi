@@ -27,6 +27,8 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
     private bool isDragging = false;
 
     private Core.Mediators.IMessenger messenger;
+    
+    private Grabber grabber = Grabber.NONE;
 
     private void Start()
     {
@@ -75,6 +77,10 @@ public class LeverUpDownHandler : MonoBehaviour, IMouseClickable
     public void MouseUp()
     {
         isDragging = false;
+    }
+
+    public void SetGrabber(Grabber g) {
+        grabber = g;
     }
 
     private void PlaySound(float volume)
