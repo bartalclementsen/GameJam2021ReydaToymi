@@ -143,7 +143,7 @@ MonoBehaviour:
     min: 0.1
   denoisingMode:
     m_OverrideState: 0
-    m_Value: 2
+    m_Value: 3
   anisotropy:
     m_OverrideState: 0
     m_Value: 0
@@ -180,47 +180,6 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-2550960910199619523
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31394aa05878563408489d5c1688f3a0, type: 3}
-  m_Name: PathTracing
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  enable:
-    m_OverrideState: 0
-    m_Value: 0
-  layerMask:
-    m_OverrideState: 0
-    m_Value:
-      serializedVersion: 2
-      m_Bits: 4294967295
-  maximumSamples:
-    m_OverrideState: 0
-    m_Value: 256
-    min: 1
-    max: 16384
-  minimumDepth:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 1
-    max: 10
-  maximumDepth:
-    m_OverrideState: 0
-    m_Value: 4
-    min: 1
-    max: 10
-  maximumIntensity:
-    m_OverrideState: 0
-    m_Value: 10
-    min: 0
 --- !u!114 &-1016694868962581565
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -310,7 +269,6 @@ MonoBehaviour:
   - {fileID: 448115243408767295}
   - {fileID: -7089757308646879465}
   - {fileID: -4855788335301492664}
-  - {fileID: -2550960910199619523}
   - {fileID: 6399120713523911735}
 --- !u!114 &448115243408767295
 MonoBehaviour:
@@ -689,7 +647,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.343
+    m_Value: 0.581
     min: 0
     max: 1
   response:
